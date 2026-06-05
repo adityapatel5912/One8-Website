@@ -92,15 +92,15 @@ export const COLLECTIONS: CollectionCard[] = [
 export const INSTAGRAM_POSTS: SocialPost[] = [
   {
     id: "ig-1",
-    imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600",
     likes: "24.5K",
     comments: "382",
-    caption: "Virat Kohli in the all-new technical carbon line. Zero friction, total control. #AlwaysPlay #one8",
+    caption: "Virat Kohli in the all-new technical apparel line. Zero friction, total control. #AlwaysPlay #one8",
     date: "JUN 2026"
   },
   {
     id: "ig-2",
-    imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600",
     likes: "42.1K",
     comments: "912",
     caption: "Symmetrical design meets physical load. Building the foundations of ultimate athleticism. @one8store",
@@ -108,7 +108,7 @@ export const INSTAGRAM_POSTS: SocialPost[] = [
   },
   {
     id: "ig-3",
-    imageUrl: "https://images.unsplash.com/photo-1607344645866-009c320b5ab8?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=600",
     likes: "18.9K",
     comments: "250",
     caption: "Golden details for the premium athlete. Crafted to inspire, engineered to persist. #LuxuryPerformance",
@@ -116,7 +116,7 @@ export const INSTAGRAM_POSTS: SocialPost[] = [
   },
   {
     id: "ig-4",
-    imageUrl: "https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=600",
     likes: "33.7K",
     comments: "441",
     caption: "Night training on the concrete boundaries. The city is your arena. Light up the darkness in active reflective. #one8",
@@ -124,7 +124,7 @@ export const INSTAGRAM_POSTS: SocialPost[] = [
   },
   {
     id: "ig-5",
-    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
     likes: "51.2K",
     comments: "1.1K",
     caption: "Behind the lens with @virat.kohli. Designing the next evolution of active premium apparel. #CoutureMeetActive",
@@ -132,7 +132,7 @@ export const INSTAGRAM_POSTS: SocialPost[] = [
   },
   {
     id: "ig-6",
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
+    imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600",
     likes: "29.4K",
     comments: "318",
     caption: "Inhale focus, exhale boundaries. The mindful athlete prepares in absolute stillness. #One8Mind",

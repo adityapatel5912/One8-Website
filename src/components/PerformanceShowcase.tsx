@@ -107,7 +107,7 @@ export default function PerformanceShowcase() {
         <div className="absolute inset-0 bg-[#0A0A0A]/40 z-10" />
         
         <img
-          src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1200"
+          src="https://images.unsplash.com/photo-1540747737956-37872f747de2?q=80&w=1200"
           alt="Parallax Performance Background Athlete"
           className="w-full h-full object-cover object-center filter grayscale contrast-[1.4] brightness-[0.2]"
           style={{
@@ -172,7 +172,7 @@ export default function PerformanceShowcase() {
                     <span>{hasScrolledIn ? counts[index] : 0}</span>
                     <span className="text-gold text-2xl ml-1 font-mono font-medium">{stat.suffix}</span>
                   </div>
-                  <h4 className="text-[11px] font-mono tracking-widest text-[#C9A84C] font-black uppercase">
+                  <h4 className="text-[11px] font-mono tracking-widest text-gold font-black uppercase">
                     {stat.label}
                   </h4>
                 </div>

@@ -145,7 +145,7 @@ export default function BrandStory() {
 
             {/* In-image overlays */}
             <div className="absolute bottom-6 left-6 z-20 space-y-1">
-              <p className="text-[10px] font-mono tracking-widest text-[#C9A84C] font-semibold">
+              <p className="text-[10px] font-mono tracking-widest text-gold font-semibold">
                 CAMP. ARCHIVE
               </p>
               <h4 className="text-sm font-display font-bold text-white tracking-widest uppercase">

@@ -55,8 +55,8 @@ export default function ProductReveal() {
   // This moves the highlight beam across the shoe from left to right as the user scrolls
   const lightPositionX = isMobile ? 50 : Math.max(10, Math.min(90, scrollFraction * 100));
 
-  const productName = "PRO.NITRO";
-  const productSub = "CARBON-INFUSED PROPULSION SNEAKER";
+  const productName = "COVER.DRIVE";
+  const productSub = "PUMA × ONE8 HIGH-PERFORMANCE TRAINING CLEAT";
 
   return (
     <section
@@ -119,8 +119,8 @@ export default function ProductReveal() {
             }`}
           >
             <img
-              src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=900"
-              alt="One8 Pro Nitro Luxury Silhouette"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=900"
+              alt="One8 Cover Drive Luxury Cleat"
               className="w-full max-w-[420px] object-contain drop-shadow-[0_20px_40px_rgba(201,168,76,0.18)] grayscale hover:grayscale-0 hover:scale-105 transition-all duration-700 ease-out rotate-[-12deg] cursor-pointer"
               referrerPolicy="no-referrer"
               data-cursor="view"
@@ -160,12 +160,16 @@ export default function ProductReveal() {
 
           <div className="space-y-6 pt-4 border-t border-white/5">
             <div className="flex justify-between items-baseline">
+              <span className="text-[11px] font-mono text-white/40">PRICE</span>
+              <span className="text-sm font-mono text-gold font-black">₹5,499</span>
+            </div>
+            <div className="flex justify-between items-baseline">
               <span className="text-[11px] font-mono text-white/40">SPECIFICATION</span>
-              <span className="text-xs font-mono text-white/80">018-CARBON</span>
+              <span className="text-xs font-mono text-white/80">018-DURABLE-EVAPLATE</span>
             </div>
             <div className="flex justify-between items-baseline">
               <span className="text-[11px] font-mono text-white/40">COLORWAY</span>
-              <span className="text-xs font-mono text-gold font-bold">OBSIDIAN / CHAMPAGNE</span>
+              <span className="text-xs font-mono text-gold font-medium">SPORT ACTIVE RED / LAVA</span>
             </div>
             <div className="flex justify-between items-baseline">
               <span className="text-[11px] font-mono text-white/40">AVAILABILITY</span>

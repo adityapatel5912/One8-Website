@@ -47,7 +47,7 @@ export default function Hero() {
         <div className="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-near-black to-transparent z-10" />
         
         <img
-          src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=1400"
+          src="https://images.unsplash.com/photo-1486218119243-13883505764c?q=80&w=1400"
           alt="Virat Kohli Training Focus - One8 Redesign Concept"
           className={`w-full h-full object-cover object-center filter grayscale contrast-[1.15] brightness-[0.45] transition-transform duration-3000 ease-out will-change-transform ${
             isLoaded ? "scale-100" : "scale-115"

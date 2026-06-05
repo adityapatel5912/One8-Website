@@ -53,7 +53,7 @@ export default function App() {
               HOST: CLOUDCONTAINER.INGRESS_3000
             </p>
           </div>
-          <span className="text-[10px] font-mono text-[#C9A84C] font-semibold border border-white/5 bg-[#0D0D0D]/75 px-2 py-1 font-bold">
+          <span className="text-[10px] font-mono text-gold font-semibold border border-white/5 bg-charcoal/75 px-2 py-1 font-bold">
             2026 EDITION
           </span>
         </div>
@@ -67,20 +67,20 @@ export default function App() {
             <span className="font-sans font-black text-4xl sm:text-5xl md:text-6xl text-gold">
               8
             </span>
-            <span className="w-2.5 h-2.5 bg-[#C9A84C] rounded-full ml-1" />
+            <span className="w-2.5 h-2.5 bg-gold rounded-full ml-1" />
           </div>
 
           <div className="space-y-2 w-full max-w-sm">
             <div className="h-[2px] bg-charcoal/40 w-full relative overflow-hidden">
               <div
-                className="h-full bg-[#C9A84C] absolute left-0 top-0 transition-all duration-300 ease-out"
+                className="h-full bg-gold absolute left-0 top-0 transition-all duration-300 ease-out"
                 style={{ width: `${Math.min(100, loadPercent)}%` }}
               />
             </div>
             
             <div className="flex justify-between font-mono text-[9px] tracking-widest text-white/40">
               <span className="animate-pulse">LOADING COUTURE CORE SERVICES...</span>
-              <span className="text-[#C9A84C] font-bold">{Math.min(100, loadPercent)}%</span>
+              <span className="text-gold font-bold">{Math.min(100, loadPercent)}%</span>
             </div>
           </div>
         </div>

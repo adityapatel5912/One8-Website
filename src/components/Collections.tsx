@@ -6,6 +6,7 @@
 import { useRef, useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { COLLECTIONS } from "../data";
+import { products } from "../lib/products";
 
 export default function Collections() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -124,7 +125,7 @@ export default function Collections() {
                 {/* Card Top Information Block */}
                 <div className="relative z-20 p-8 flex justify-between items-start">
                   <div>
-                    <span className="text-[10px] font-mono tracking-widest text-[#C9A84C] font-semibold uppercase">
+                    <span className="text-[10px] font-mono tracking-widest text-gold font-semibold uppercase">
                       {card.category}
                     </span>
                     <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white tracking-tight uppercase leading-tight mt-1 group-hover:text-gold transition-colors duration-300">
@@ -159,9 +160,85 @@ export default function Collections() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-20 flex gap-4 select-none mt-4 justify-between items-center text-white/30 font-mono text-[9px] tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-20 flex gap-4 select-none mt-4 justify-between items-center text-white/30 font-mono text-[9px] tracking-widest border-b border-white/5 pb-10">
         <span>SWIPE OR DRAG HORIZONTALLY TO EXPLORE DECK</span>
         <span>ONE8 DESIGN DIVISION // 2026 SPECIFICATION</span>
+      </div>
+
+      {/* Premium Product Directory Grid */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-20 mt-32">
+        <div className="border-b border-white/5 pb-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl space-y-4">
+            <span className="text-[10px] font-mono tracking-widest text-gold font-bold">
+              018 // THE CURATED GEAR
+            </span>
+            <h3 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight uppercase leading-none">
+              REAL-TIME CATALOG INDEX
+            </h3>
+            <p className="text-sm text-white/50 leading-relaxed font-light">
+              Explore individual technical athletic gear pieces from our active roster. Link directly to the official registries for real availability checks.
+            </p>
+          </div>
+          <p className="text-right font-mono text-[9px] tracking-widest text-[#444] select-none uppercase">
+            SORT // ALPHABETICAL CODEWAY
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product) => (
+            <a
+              key={product.id}
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-[#0D0D0D] border border-white/5 hover:border-gold transition-all duration-500 flex flex-col h-full relative"
+              id={`product-card-${product.id}`}
+            >
+              {/* Product Image Frame */}
+              <div className="aspect-[4/5] w-full overflow-hidden relative bg-black">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-65 group-hover:opacity-40 transition-opacity duration-300" />
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-[0.6] group-hover:brightness-[0.8]"
+                />
+                
+                {/* Embedded Hover View Trigger */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                  <span className="px-5 py-3 border border-gold font-mono text-[10px] tracking-widest text-gold bg-near-black/90 font-bold uppercase backdrop-blur-subtle">
+                    BUY DIRECTLY
+                  </span>
+                </div>
+              </div>
+
+              {/* Product Info detail panel */}
+              <div className="p-6 flex flex-col justify-between flex-grow bg-gradient-to-b from-[#0D0D0D] to-black">
+                <div className="space-y-2">
+                  <span className="text-[9px] font-mono tracking-widest text-gold font-bold uppercase">
+                    {product.category}
+                  </span>
+                  <h4 className="font-display font-medium text-sm text-white tracking-tight uppercase transition-colors group-hover:text-gold line-clamp-1">
+                    {product.name}
+                  </h4>
+                  <p className="text-[11px] text-white/40 leading-relaxed font-light line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+                
+                <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">PRICE</span>
+                  <span className="font-mono text-sm font-black text-white group-hover:text-gold transition-colors">
+                    ₹{product.price.toLocaleString("en-IN")}
+                  </span>
+                </div>
+              </div>
+
+              {/* Corner accent lines */}
+              <span className="absolute top-0 right-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

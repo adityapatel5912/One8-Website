@@ -125,7 +125,7 @@ export default function SocialGallery() {
 
                 {/* Top Overlay metadata */}
                 <div className="absolute top-6 left-6 right-6 z-20 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="font-mono text-[10px] tracking-widest text-[#C9A84C] font-bold">
+                  <span className="font-mono text-[10px] tracking-widest text-gold font-bold">
                     @ONE8STORE
                   </span>
                   <span className="font-mono text-[9px] text-white/40">
@@ -154,10 +154,10 @@ export default function SocialGallery() {
                 </div>
 
                 {/* Border frames that expand trigger on hover */}
-                <div className="absolute top-0 left-0 w-full h-[1.5px] bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <div className="absolute bottom-0 right-0 w-full h-[1.5px] bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-500" />
-                <div className="absolute top-0 right-0 w-[1.5px] h-full bg-[#C9A84C] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
-                <div className="absolute bottom-0 left-0 w-[1.5px] h-full bg-[#C9A84C] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500" />
+                <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gold scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <div className="absolute bottom-0 right-0 w-full h-[1.5px] bg-gold scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-500" />
+                <div className="absolute top-0 right-0 w-[1.5px] h-full bg-gold scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-[1.5px] h-full bg-gold scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500" />
               </div>
             );
           })}

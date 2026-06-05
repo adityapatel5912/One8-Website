@@ -132,7 +132,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-[10px] font-mono tracking-[0.2em] text-[#C9A84C] font-black uppercase">
+            <h4 className="text-[10px] font-mono tracking-[0.2em] text-gold font-black uppercase">
               DIRECTORY
             </h4>
             <ul className="space-y-2 text-xs font-light text-white/50">
@@ -144,7 +144,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-[10px] font-mono tracking-[0.2em] text-[#C9A84C] font-black uppercase">
+            <h4 className="text-[10px] font-mono tracking-[0.2em] text-gold font-black uppercase">
               RESOURCES
             </h4>
             <ul className="space-y-2 text-xs font-light text-white/50">
@@ -156,21 +156,21 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-[10px] font-mono tracking-[0.2em] text-[#C9A84C] font-black uppercase">
+            <h4 className="text-[10px] font-mono tracking-[0.2em] text-gold font-black uppercase">
               SOCIAL CONNECT
             </h4>
             <ul className="space-y-2 text-xs font-light text-white/50">
-              <li><a href="https://instagram.com/one8store" target="_blank" rel="noreferrer" className="hover:text-[#C9A84C] transition-colors duration-200">@one8store</a></li>
+              <li><a href="https://instagram.com/one8store" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors duration-200">@one8store</a></li>
               <li><a href="https://instagram.com/virat.kohli" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">@virat.kohli</a></li>
               <li><a href="https://twitter.com/imVkohli" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">Twitter Spec</a></li>
             </ul>
           </div>
 
           <div className="space-y-4 col-span-2 md:col-span-1">
-            <h4 className="text-[10px] font-mono tracking-[0.2em] text-[#C9A84C] font-black uppercase">
+            <h4 className="text-[10px] font-mono tracking-[0.2em] text-gold font-black uppercase">
               CONCEIVED BY
             </h4>
-            <div className="flex flex-col gap-2 bg-[#0D0D0D] border border-white/5 p-4 rounded-none">
+            <div className="flex flex-col gap-2 bg-charcoal border border-white/5 p-4 rounded-none">
               <span className="text-[11px] font-mono font-bold text-white tracking-widest uppercase">
                 ADITYA PATEL
               </span>
