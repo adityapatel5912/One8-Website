@@ -4,11 +4,13 @@
  */
 
 import { useRef, useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShoppingBag } from "lucide-react";
 import { COLLECTIONS } from "../data";
 import { products } from "../lib/products";
+import { useCart } from "../context/CartContext";
 
 export default function Collections() {
+  const { openProductDetails, addToCart } = useCart();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -185,59 +187,95 @@ export default function Collections() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <a
-              key={product.id}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-[#0D0D0D] border border-white/5 hover:border-gold transition-all duration-500 flex flex-col h-full relative"
-              id={`product-card-${product.id}`}
-            >
-              {/* Product Image Frame */}
-              <div className="aspect-[4/5] w-full overflow-hidden relative bg-black">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-65 group-hover:opacity-40 transition-opacity duration-300" />
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-[0.6] group-hover:brightness-[0.8]"
-                />
-                
-                {/* Embedded Hover View Trigger */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                  <span className="px-5 py-3 border border-gold font-mono text-[10px] tracking-widest text-gold bg-near-black/90 font-bold uppercase backdrop-blur-subtle">
-                    BUY DIRECTLY
-                  </span>
-                </div>
-              </div>
+          {products.map((product) => {
+            const isFragrance = product.category.toLowerCase().includes("fragrance");
+            const defaultSize = isFragrance ? "100ml" : "UK 9";
 
-              {/* Product Info detail panel */}
-              <div className="p-6 flex flex-col justify-between flex-grow bg-gradient-to-b from-[#0D0D0D] to-black">
-                <div className="space-y-2">
-                  <span className="text-[9px] font-mono tracking-widest text-gold font-bold uppercase">
-                    {product.category}
-                  </span>
-                  <h4 className="font-display font-medium text-sm text-white tracking-tight uppercase transition-colors group-hover:text-gold line-clamp-1">
-                    {product.name}
-                  </h4>
-                  <p className="text-[11px] text-white/40 leading-relaxed font-light line-clamp-2">
-                    {product.description}
-                  </p>
+            return (
+              <div
+                key={product.id}
+                className="group bg-[#0D0D0D] border border-white/5 hover:border-gold transition-all duration-500 flex flex-col h-full relative cursor-pointer"
+                id={`product-card-${product.id}`}
+                onClick={() => openProductDetails(product)}
+              >
+                {/* Product Image Frame */}
+                <div className="aspect-[4/5] w-full overflow-hidden relative bg-black">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-65 group-hover:opacity-40 transition-opacity duration-300" />
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-[0.6] group-hover:brightness-[0.8]"
+                  />
+                  
+                  {/* Embedded Hover View Trigger with dual action links */}
+                  <div className="absolute inset-0 flex flex-col gap-3.5 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 px-6">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openProductDetails(product);
+                      }}
+                      className="w-full py-2.5 border border-gold font-mono text-[9px] tracking-widest text-gold bg-near-black/90 font-bold uppercase backdrop-blur-subtle hover:bg-gold hover:text-near-black transition-colors"
+                    >
+                      VIEW DETAILED SPEC
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart(product, 1, defaultSize);
+                      }}
+                      className="w-full py-2.5 bg-gold border border-gold font-mono text-[9px] tracking-widest text-near-black font-black uppercase hover:bg-gold-hover transition-colors"
+                    >
+                      QUICK ADD TO DECK
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">PRICE</span>
-                  <span className="font-mono text-sm font-black text-white group-hover:text-gold transition-colors">
-                    ₹{product.price.toLocaleString("en-IN")}
-                  </span>
-                </div>
-              </div>
 
-              {/* Corner accent lines */}
-              <span className="absolute top-0 right-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
-            </a>
-          ))}
+                {/* Product Info detail panel */}
+                <div className="p-6 flex flex-col justify-between flex-grow bg-gradient-to-b from-[#0D0D0D] to-black">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-baseline">
+                      <span className="text-[9px] font-mono tracking-widest text-gold font-bold uppercase">
+                        {product.category}
+                      </span>
+                      <span className="text-[8px] font-mono text-white/35 uppercase">
+                        {defaultSize}
+                      </span>
+                    </div>
+                    <h4 className="font-display font-medium text-sm text-white tracking-tight uppercase transition-colors group-hover:text-gold line-clamp-1">
+                      {product.name}
+                    </h4>
+                    <p className="text-[11px] text-white/40 leading-relaxed font-light line-clamp-2">
+                      {product.description}
+                    </p>
+                  </div>
+                  
+                  <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-[9px] font-mono text-white/30 tracking-widest uppercase">PRICE</span>
+                      <span className="font-mono text-sm font-black text-white group-hover:text-gold transition-colors">
+                        ₹{product.price.toLocaleString("en-IN")}
+                      </span>
+                    </div>
+                    
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart(product, 1, defaultSize);
+                      }}
+                      className="p-2 border border-white/5 hover:border-gold hover:text-gold text-white/40 bg-[#0E1012] transition-all duration-300"
+                      title="Add to Loadout"
+                    >
+                      <ShoppingBag className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Corner accent lines */}
+                <span className="absolute top-0 right-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold group-hover:w-full transition-all duration-700 delay-100" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

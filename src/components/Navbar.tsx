@@ -5,8 +5,11 @@
 
 import { useEffect, useState, MouseEvent } from "react";
 import { NAV_LINKS } from "../data";
+import { useCart } from "../context/CartContext";
+import { ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
+  const { setIsCartOpen, cartCount } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -90,8 +93,26 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Gold Action Button */}
-        <div id="navbar-action-ctas" className="flex items-center gap-4">
+        {/* Gold Action Button & Cart Trigger */}
+        <div id="navbar-action-ctas" className="flex items-center gap-3">
+          <button
+            id="navbar-cart-trigger"
+            onClick={() => setIsCartOpen(true)}
+            className="flex items-center gap-2 px-3 py-2.5 bg-[#0E1012]/80 hover:bg-near-black border border-white/5 hover:border-gold/30 text-white hover:text-gold transition-all duration-300 relative group cursor-pointer"
+          >
+            <div className="relative">
+              <ShoppingBag className="w-3.5 h-3.5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-gold text-near-black text-[8px] font-mono font-black rounded-full w-3 h-3 flex items-center justify-center animate-pulse scale-95">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+            <span className="font-mono text-[9px] tracking-widest font-bold uppercase hidden sm:inline">
+              DECK
+            </span>
+          </button>
+
           <a
             href="#collections"
             id="navbar-cta-btn"

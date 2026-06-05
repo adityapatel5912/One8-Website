@@ -14,6 +14,9 @@ import SocialGallery from "./components/SocialGallery";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import ProgressBar from "./components/ProgressBar";
+import { CartProvider } from "./context/CartContext";
+import CartDrawer from "./components/CartDrawer";
+import ProductDetailModal from "./components/ProductDetailModal";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -102,29 +105,35 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-near-black text-white selection:bg-gold selection:text-near-black">
-      {/* Background Subtle Grain Texture Layer across the entire application */}
-      <div className="absolute inset-0 bg-grain z-1 pointer-events-none" />
+    <CartProvider>
+      <div className="relative min-h-screen bg-near-black text-white selection:bg-gold selection:text-near-black">
+        {/* Background Subtle Grain Texture Layer across the entire application */}
+        <div className="absolute inset-0 bg-grain z-1 pointer-events-none" />
 
-      {/* Modern Cursor System */}
-      <CustomCursor />
+        {/* Modern Cursor System */}
+        <CustomCursor />
 
-      {/* Progress system at top */}
-      <ProgressBar />
+        {/* Progress system at top */}
+        <ProgressBar />
 
-      {/* Interactive global nav */}
-      <Navbar />
+        {/* Interactive global nav */}
+        <Navbar />
 
-      {/* Entire 7 section layout */}
-      <main id="luxury8-scroller-track" className="relative z-10">
-        <Hero />
-        <BrandStory />
-        <ProductReveal />
-        <PerformanceShowcase />
-        <Collections />
-        <SocialGallery />
-        <Footer />
-      </main>
-    </div>
+        {/* Entire 7 section layout */}
+        <main id="luxury8-scroller-track" className="relative z-10">
+          <Hero />
+          <BrandStory />
+          <ProductReveal />
+          <PerformanceShowcase />
+          <Collections />
+          <SocialGallery />
+          <Footer />
+        </main>
+
+        {/* Interlocking Luxury Overlays */}
+        <CartDrawer />
+        <ProductDetailModal />
+      </div>
+    </CartProvider>
   );
 }

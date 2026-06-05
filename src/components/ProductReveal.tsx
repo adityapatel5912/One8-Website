@@ -4,8 +4,12 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { useCart } from "../context/CartContext";
+import { products } from "../lib/products";
 
 export default function ProductReveal() {
+  const { openProductDetails } = useCart();
+  const coverDriveProduct = products.find((p) => p.id === "cover-drive-cleat");
   const sectionRef = useRef<HTMLDivElement>(null);
   const [scrollFraction, setScrollFraction] = useState(0);
   const [hasRevealed, setHasRevealed] = useState(false);
@@ -121,7 +125,8 @@ export default function ProductReveal() {
             <img
               src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=900"
               alt="One8 Cover Drive Luxury Cleat"
-              className="w-full max-w-[420px] object-contain drop-shadow-[0_20px_40px_rgba(201,168,76,0.18)] grayscale hover:grayscale-0 hover:scale-105 transition-all duration-700 ease-out rotate-[-12deg] cursor-pointer"
+              onClick={() => coverDriveProduct && openProductDetails(coverDriveProduct)}
+              className="w-full max-w-[420px] object-contain drop-shadow-[0_20px_40px_rgba(201,168,76,0.18)] grayscale hover:grayscale-0 hover:scale-[1.07] hover:rotate-[-8deg] transition-all duration-700 ease-out rotate-[-12deg] cursor-pointer"
               referrerPolicy="no-referrer"
               data-cursor="view"
             />
@@ -178,12 +183,12 @@ export default function ProductReveal() {
           </div>
 
           <div className="pt-2">
-            <a
-              href="#collections"
-              className="inline-block py-4 px-6 border border-gold text-gold font-mono text-[10px] tracking-widest font-bold uppercase hover:bg-gold hover:text-near-black hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full text-center"
+            <button
+              onClick={() => coverDriveProduct && openProductDetails(coverDriveProduct)}
+              className="inline-block py-4 px-6 border border-gold text-gold font-mono text-[10px] tracking-widest font-bold uppercase bg-transparent hover:bg-gold hover:text-near-black hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full text-center cursor-pointer"
             >
               RESERVE SNEAKER (2026 EDITION)
-            </a>
+            </button>
           </div>
         </div>
 
