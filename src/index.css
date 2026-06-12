@@ -96,3 +96,11 @@ body {
   backdrop-filter: blur(8px);
 }
 
+/* De-register default OS cursor on hover-capable premium viewports */
+@media (any-hover: hover) {
+  html, body, a, button, select, input, [role="button"], .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+
